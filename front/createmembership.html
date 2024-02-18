@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please create your mebership here</title>
+    <link rel="stylesheet" href="creatememberhip.css">
+</head>
+<body>
+    <nav>
+        <div><a href="http://192.168.0.49:8080/main.html">Memberships</a></div>
+        <div><a href="http://192.168.0.49:8080/user.html">Users</a></div>   
+    </nav>
+
+    <main>
+        <div class="first">
+            <div>
+                <h1>Create Membership</h1>
+            </div>
+        </div>
+
+
+        <div>
+            <div class="card">
+                <form>
+                    <label for="name"><strong>Name</strong></label>
+                    <input type="text" name="name" id="name">
+
+                    <label for="price"><strong>Membership Price</strong></label>
+                    <input type="number" name="price" id="price">
+
+                    <label for="descripcion"><strong>Description</strong></label>
+                    <textarea name="descripcion" id="descripcion" cols="10" rows="10"></textarea>
+
+                <div class="buttons">
+                    <button class="white">Cancel</button>
+                    <button class="blue">New Membership</button>
+                </div>
+                </form>
+            </div>
+        </div>
+ 
+    </main>
+
+    <footer>&copy; Copyright, 2023 Membership Manager</footer>
+    <script src="createmembership.js"></script>
+</body>
+</html>
