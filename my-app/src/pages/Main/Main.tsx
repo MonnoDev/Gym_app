@@ -3,6 +3,8 @@ import { getMemberships } from "../../api/membership";
 import Loading from "../../components/Loading/Loading";
 import { Membership } from "../../api/membership";
 import Card from "../../components/Card/Card";
+import HeroImage from "../../images/hero.png"
+import Nav from "../../components/Nav/Nav";
 
 const Main: React.FC = () => {
   const [membership, setMembership] = useState<Membership[]>([]);
@@ -24,13 +26,12 @@ const Main: React.FC = () => {
 
   return (
     <div>
-      <div className="first">
+      <div>
+        <Nav/>
+      </div>
+      <div>
         <div>
-          <h1>Membership Management</h1>
-          <p>
-            Here you can manage membership packages. Make sure you are not deleting or deactivating packages
-            assigned to active users.
-          </p>
+        <img src={HeroImage} alt="Hero" />
         </div>
       </div>
 

@@ -1,0 +1,15 @@
+.nav-container{
+   background-color: #161514;
+   display: flex;
+   justify-content: space-between;
+   padding: 5px;
+}
+
+.nav-container img{
+    width: 30px;
+    height: 30px;
+}
+
+.nav-container a{
+    text-decoration: none;
+}
