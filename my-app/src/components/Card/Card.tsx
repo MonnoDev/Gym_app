@@ -1,6 +1,7 @@
 import React from "react";
 import { User } from "../../api/user";
 import { Membership } from "../../api/membership";
+
 import "./Card.css"
 
 type CardProps = {
@@ -12,7 +13,7 @@ const Card: React.FC<CardProps> = ({ user, membership }) => {
 
   if (user) {
 
-    const { fname, lname, email, info } = user;
+    const { fname, lname, email, phoneNumber, dateOfBirth, gender, city, address, bankAccount, password, info } = user;
     const membershipName = info && info.length > 0 ? info[0].name : "No Membership Info";
 
     return (
@@ -20,6 +21,14 @@ const Card: React.FC<CardProps> = ({ user, membership }) => {
       <div className="cardContainer">
         <h2 className="cardTitle">{`${fname} ${lname}`}</h2>
         <p className="cardContent">Email: {email}</p>
+        <p >Phone number: {phoneNumber}</p>
+        <p >Date of birth: {dateOfBirth}</p>
+        <p >Gender: {gender}</p>
+        <p >City: {city}</p>
+        <p >Adress: {address}</p>
+        <p >Password: {password}</p>
+        <p >Repeat password: {password}</p>
+        <p >Bank account: {bankAccount}</p>
         <p>Membership: {membershipName}</p>
       </div>
       </div>

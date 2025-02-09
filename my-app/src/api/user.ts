@@ -5,6 +5,12 @@ export interface User {
   fname?: string;
   lname?: string;
   email?: string;
+  phoneNumber?: string;
+  dateOfBirth?: string;
+  gender?: string;
+  city?: string;
+  address?: string;
+  bankAccount?: string;
   password?: string;
   service_id?: string;
   info?: Membership[];

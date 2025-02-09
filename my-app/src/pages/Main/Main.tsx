@@ -5,6 +5,7 @@ import { Membership } from "../../api/membership";
 import Card from "../../components/Card/Card";
 import HeroImage from "../../images/hero.png"
 import Nav from "../../components/Nav/Nav";
+import "./Main.css";
 
 const Main: React.FC = () => {
   const [membership, setMembership] = useState<Membership[]>([]);
@@ -30,7 +31,7 @@ const Main: React.FC = () => {
         <Nav/>
       </div>
       <div>
-        <div>
+        <div className="heroImage">
         <img src={HeroImage} alt="Hero" />
         </div>
       </div>
