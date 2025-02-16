@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { postMembership } from "../../api/membership";
 import { Membership } from "../../api/membership";
+import Form from "../../components/Form/Form";
+import Button from "../../components/Button/Button";
 
 const CreateMembership: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -29,54 +31,36 @@ const CreateMembership: React.FC = () => {
   return (
     <div className="card">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">
-          Name<span>*</span>
-        </label>
-        <input
+        <Form
+          label="Name"
           type="text"
-          name="name"
-          id="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
         />
-
-        <label htmlFor="price">
-          Price<span>*</span>
-        </label>
-        <input
+        <Form
+          label="Price"
           type="text"
-          name="price"
-          id="price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           required
         />
-
-        <label htmlFor="descripcion">
-          Descripcion<span>*</span>
-        </label>
-        <input
+        <Form
+          label="Descripcion"
           type="descripcion"
-          name="descripcion"
-          id="descripcion"
           value={descripcion}
           onChange={(e) => setDescripcion(e.target.value)}
           required
         />
-
         <div className="buttons">
-          <button
-            type="button"
-            className="white"
+          <Button
+            children="Cancel"
             onClick={() => {
             }}
-          >
-            Cancel
-          </button>
-          <button type="submit" className="blue">
-            New Membership
-          </button>
+          />
+          <Button
+            children="New Membership"
+          />
         </div>
       </form>
     </div>

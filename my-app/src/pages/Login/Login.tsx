@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { User, getUsers } from "../../api/user";
+import Form from "../../components/Form/Form";
+import Button from "../../components/Button/Button";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -45,45 +47,32 @@ const Login: React.FC = () => {
       {error && <div style={{ color: "red" }}>{error}</div>}
 
       <form onSubmit={onSubmitHandler}>
-        <label htmlFor="email">
-          Email Address<span>*</span>
-        </label>
-        <input
+        <Form
+          label="Email adress"
           type="email"
-          name="email"
-          id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-
-        <label htmlFor="password">
-          Password<span>*</span>
-        </label>
-        <input
+        <Form
+          label="Password"
           type="password"
-          name="password"
-          id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-
         <div className="buttons">
-          <button
-            type="button"
-            className="white"
+          <Button
+            children="Cancel"
             onClick={() => {
               setEmail("");
               setPassword("");
               setError("");
             }}
-          >
-            Cancel
-          </button>
-          <button type="submit" className="blue">
-            Log in
-          </button>
+          />
+          <Button
+          children="Log in"
+          />
         </div>
       </form>
     </div>

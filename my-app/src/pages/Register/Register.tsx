@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { User, getUsers, postUsers } from "../../api/user";
 import { getMemberships } from "../../api/membership";
 import Form from "../../components/Form/Form";
+import Button from "../../components/Button/Button";
 
 const Register: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -196,9 +197,8 @@ const Register: React.FC = () => {
         {success && <div style={{ color: "green" }}>{success}</div>}
 
         <div className="buttons">
-          <button
-            type="button"
-            className="white"
+          <Button
+            children="Cancel"
             onClick={() => {
               setEmail(email);
               setPassword(password);
@@ -215,12 +215,10 @@ const Register: React.FC = () => {
               setBankAccount("");
               setMembershipName("");
             }}
-          >
-            Cancel
-          </button>
-          <button type="submit" className="blue">
-            Register
-          </button>
+          />
+          <Button
+            children="Register"
+          />
         </div>
       </form>
     </div>
