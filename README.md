@@ -1,5 +1,7 @@
 # Gym app
 
+Currently revamping this with TS
+
 This is a gym admin application built with simple HTML, CSS, and JavaScript. It utilizes MongoDB as its database. To get started, ensure you have set up your .env file with the required configurations including the database name, connection string, and port number. Once configured, simply run npm install to install the necessary dependencies.
 
 ![Screenshot 2024-02-17 121748](https://github.com/MonnoDev/Gym_app/assets/121252311/1d738533-2c42-4689-9544-a3f925e0854c)
