@@ -4,10 +4,12 @@ import Main from "../pages/Main/Main";
 import Users from "../pages/Users/Users";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import Profile from "../pages/Profile/Profile";
 
 export const MAIN_ROUTE = "/";
 export const LOGIN_ROUTE = "/login";
 export const REGISTER_ROUTE = "/register";
+export const PROFILE_ROUTE = "/profile";
 export const USERS_ROUTE = "/users";
 export const CREATE_USER__ROUTE = "/createuser";
 export const CREATE_MEMBERSHIP__ROUTE = "/createmembership";
@@ -25,6 +27,10 @@ export const adminRoutes ={
         {
             path: REGISTER_ROUTE,
             Component: Register,
+        },
+        {
+            path: PROFILE_ROUTE,
+            Component: Profile,
         },
         {
             path: USERS_ROUTE,

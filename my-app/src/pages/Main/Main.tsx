@@ -3,7 +3,7 @@ import { getMemberships } from "../../api/membership";
 import Loading from "../../components/Loading/Loading";
 import { Membership } from "../../api/membership";
 import Card from "../../components/Card/Card";
-import HeroImage from "../../images/hero.png"
+import HeroImage from "../../images/hero.jpg"
 import Nav from "../../components/Nav/Nav";
 import "./Main.css";
 

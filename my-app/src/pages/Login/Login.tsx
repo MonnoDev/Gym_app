@@ -24,9 +24,11 @@ const Login: React.FC = () => {
       .then((allUsers: User[]) => {
         const existingUser = checkUser(allUsers, checkingUser);
         if (existingUser) {
-          setUser(existingUser);
-          localStorage.setItem("user", JSON.stringify(existingUser));
-          setError("");
+          if (existingUser._id) {
+            const id: string = existingUser._id;
+            localStorage.setItem("userId", id);
+            console.log("Logged in user ID:", id);
+          }          
         } else {
           throw new Error("Invalid email or password");
         }

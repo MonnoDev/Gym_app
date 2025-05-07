@@ -41,6 +41,37 @@ app.get('/users', async (req, res) => {
   }
 });
 
+app.get('/users/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { order } = req.query;
+    const con = await client.connect();
+    const sortQuery = { fname: order === 'desc' ? 1 : -1 };
+    const data = await con
+      .db(dbName)
+      .collection('Users')
+      .aggregate([
+        {
+          $match: { _id: new ObjectId(id) },
+        },
+        {
+          $lookup: {
+            from: 'Services',
+            localField: 'service_id',
+            foreignField: '_id',
+            as: 'info',
+          },
+        },
+        { $sort: sortQuery },
+      ])
+      .toArray();
+    await con.close();
+    res.send(data);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 app.get('/memberships', async (req, res) => {
   try {
     const con = await client.connect();
