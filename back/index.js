@@ -82,6 +82,25 @@ app.get('/memberships', async (req, res) => {
     res.status(500).send(error);
   }
 });
+app.get('/memberships/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const con = await client.connect();
+    const membership = await con
+      .db(dbName)
+      .collection('Services')
+      .findOne({ _id: new ObjectId(id) });
+    await con.close();
+
+    if (membership) {
+      res.send(membership);
+    } else {
+      res.status(404).send({ message: 'Membership not found' });
+    }
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+});
 
 app.get('/users/:order', async (req, res) => {
   try {

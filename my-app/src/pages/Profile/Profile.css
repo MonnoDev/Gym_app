@@ -1,0 +1,15 @@
+.profileCard{
+    display: flex;
+    
+}
+
+.personalDetailsCard, .contactDeatilsCard, .membershipDetailsCard{
+    background-color: rgb(212, 212, 212);
+    height: 220px;
+    width: 200px;
+    padding: 0.5rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
