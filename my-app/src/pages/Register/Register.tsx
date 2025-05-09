@@ -72,7 +72,7 @@ const Register: React.FC = () => {
       console.log("Registering user:", newUser);
 
       const createdUser = await postUsers(newUser);
-      localStorage.setItem("user", JSON.stringify(createdUser));
+      sessionStorage.setItem("user", JSON.stringify(createdUser));
       setSuccess("User registered successfully.");
       setError("");
       setEmail("");

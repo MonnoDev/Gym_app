@@ -9,7 +9,7 @@ const Profile: React.FC = () => {
     const [membership, setMembership] = useState<Membership | null>();
 
     useEffect(() => {
-        const id = localStorage.getItem("userId");
+        const id = sessionStorage.getItem("userId");
       
         if (id) {
           getUser(id)

@@ -1,8 +1,8 @@
 import { Routes as RouteContainer, Route } from "react-router-dom";
-import { adminRoutes } from "./const";
+import { clientRoutes } from "./const";
 
 const AppRoutes: React.FC = () => {
-    const {routes} = adminRoutes
+    const {routes} = clientRoutes
     
     return (
         <RouteContainer>

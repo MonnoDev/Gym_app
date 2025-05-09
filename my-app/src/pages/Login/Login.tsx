@@ -7,7 +7,7 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [user, setUser] = useState<User | null>(() => {
-    const storedUser = localStorage.getItem("user");
+    const storedUser = sessionStorage.getItem("user");
     return storedUser ? JSON.parse(storedUser) : null;
   });
 
@@ -24,11 +24,18 @@ const Login: React.FC = () => {
       .then((allUsers: User[]) => {
         const existingUser = checkUser(allUsers, checkingUser);
         if (existingUser) {
-          if (existingUser._id) {
+          if (existingUser._id && existingUser.admin) {
             const id: string = existingUser._id;
-            localStorage.setItem("userId", id);
+            const admin: string = existingUser.admin;
+            sessionStorage.setItem("userId", id);
+            sessionStorage.setItem("admin", admin)
             console.log("Logged in user ID:", id);
-          }          
+          } 
+          if (existingUser._id && !existingUser.admin){
+            const id: string = existingUser._id;
+            sessionStorage.setItem("userId", id);
+            console.log("Logged in user ID:", id);
+          }        
         } else {
           throw new Error("Invalid email or password");
         }
