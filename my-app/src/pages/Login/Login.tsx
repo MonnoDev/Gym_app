@@ -26,9 +26,9 @@ const Login: React.FC = () => {
         if (existingUser) {
           if (existingUser._id && existingUser.admin) {
             const id: string = existingUser._id;
-            const admin: string = existingUser.admin;
+            const admin: boolean = existingUser.admin;
             sessionStorage.setItem("userId", id);
-            sessionStorage.setItem("admin", admin)
+            sessionStorage.setItem("admin", admin.toString())
             console.log("Logged in user ID:", id);
           } 
           if (existingUser._id && !existingUser.admin){

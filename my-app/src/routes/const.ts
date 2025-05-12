@@ -16,6 +16,28 @@ export const CREATE_USER__ROUTE = "/createuser";
 export const CREATE_MEMBERSHIP__ROUTE = "/createmembership";
 export const ADMIN_ROUTE = "/admin";
 
+export const adminRoutes = {
+    routes: [
+        {   
+            path: ADMIN_ROUTE,
+            Component: Admin,
+
+        },
+        {
+            path: USERS_ROUTE,
+            Component: Users,
+        },
+        {
+            path: CREATE_USER__ROUTE,
+            Component: CreateUser,
+        },
+        {
+            path: CREATE_MEMBERSHIP__ROUTE,
+            Component: CreateMembership,
+        },
+    ]
+}
+
 export const clientRoutes ={
     routes: [
         {
@@ -33,22 +55,6 @@ export const clientRoutes ={
         {
             path: PROFILE_ROUTE,
             Component: Profile,
-        },
-        {   path: ADMIN_ROUTE,
-            Component: Admin,
-
-        },
-        {
-            path: USERS_ROUTE,
-            Component: Users,
-        },
-        {
-            path: CREATE_USER__ROUTE,
-            Component: CreateUser,
-        },
-        {
-            path: CREATE_MEMBERSHIP__ROUTE,
-            Component: CreateMembership,
         },
     ],
 };

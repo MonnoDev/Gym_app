@@ -1,32 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { User, getUser } from "../../api/user";
-import CreateMembership from "../CreateMembership/CreateMembership";
-import CreateUser from "../CreateUser/CreateUser";
-import Users from "../Users/Users";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
 const Admin: React.FC = () => {
-    const [user, setUser] = useState<User | null>(null);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        const id = sessionStorage.getItem("userId");
-        const admin = sessionStorage.getItem("admin");
-
-        if (id && admin === "true") {
-            getUser(id)
-                .then((userData) => {
-                    const fetchedUser = userData[0];
-                    setUser(fetchedUser);
-                })
-                .catch((err) => {
-                    console.log('Failed to fetch');
-                    navigate("/");
-                });
-        } else {
-            navigate("/");
-        }
-    }, [navigate]);
 
     return (
         <div>

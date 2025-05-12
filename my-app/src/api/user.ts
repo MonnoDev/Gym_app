@@ -14,7 +14,7 @@ export interface User {
   bankAccount?: string;
   password?: string;
   service_id?: string;
-  admin?: string;
+  admin?: boolean;
   info?: Membership[];
 }
 
