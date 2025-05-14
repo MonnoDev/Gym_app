@@ -1,8 +1,9 @@
-// CheckoutForm.tsx
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 const Checkout: React.FC = () => {
+  const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
 
@@ -15,14 +16,13 @@ const Checkout: React.FC = () => {
 
     if (!cardElement) return;
 
-    // Simulate client-side call only — NO real charge
     const result = await stripe.createToken(cardElement);
 
     if (result.error) {
       console.error(result.error.message);
     } else {
       console.log("Received Stripe token:", result.token);
-      alert("Test payment token created! ✅");
+      navigate("/profile");
     }
   };
 

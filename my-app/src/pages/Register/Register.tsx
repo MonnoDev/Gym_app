@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { User, getUsers, postUsers } from "../../api/user";
 import { getMemberships } from "../../api/membership";
 import Form from "../../components/Form/Form";
 import Button from "../../components/Button/Button";
 
 const Register: React.FC = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [repeatPassword, setRepeatPassword] = useState<string>("");
@@ -17,7 +19,6 @@ const Register: React.FC = () => {
   const [gender, setGender] = useState<string>("");
   const [city, setCity] = useState<string>("");
   const [address, setAddress] = useState<string>("");
-  const [bankAccount, setBankAccount] = useState<string>("");
   const [membershipName, setMembershipName] = useState<string>("");
   const [memberships, setMemberships] = useState<any[]>([]);
 
@@ -65,14 +66,13 @@ const Register: React.FC = () => {
         gender,
         city,
         address,
-        bankAccount,
         service_id: membershipName,
       };
 
       console.log("Registering user:", newUser);
 
       const createdUser = await postUsers(newUser);
-      sessionStorage.setItem("user", JSON.stringify(createdUser));
+      sessionStorage.setItem("userId", createdUser._id!);
       setSuccess("User registered successfully.");
       setError("");
       setEmail("");
@@ -85,8 +85,9 @@ const Register: React.FC = () => {
       setGender("");
       setCity("");
       setAddress("");
-      setBankAccount("");
       setMembershipName("");
+
+      navigate("/chekout");
     } catch (err: any) {
       setError(err.message || "An error occurred during registration.");
       setSuccess("");
@@ -143,13 +144,6 @@ const Register: React.FC = () => {
           type="text"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
-          required
-        />
-        <Form
-          label="Bank Account"
-          type="text"
-          value={bankAccount}
-          onChange={(e) => setBankAccount(e.target.value)}
           required
         />
 
@@ -212,7 +206,6 @@ const Register: React.FC = () => {
               setGender("");
               setCity("");
               setAddress("");
-              setBankAccount("");
               setMembershipName("");
             }}
           />

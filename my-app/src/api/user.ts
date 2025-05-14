@@ -11,7 +11,6 @@ export interface User {
   gender?: string;
   city?: string;
   address?: string;
-  bankAccount?: string;
   password?: string;
   service_id?: string;
   admin?: boolean;

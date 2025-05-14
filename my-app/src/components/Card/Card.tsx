@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({ user, membership }) => {
 
   if (user) {
 
-    const { fname, lname, email, phoneNumber, dateOfBirth, gender, city, address, bankAccount, password, info } = user;
+    const { fname, lname, email, phoneNumber, dateOfBirth, gender, city, address, password, info } = user;
     const membershipName = info && info.length > 0 ? info[0].name : "No Membership Info";
 
     return (
@@ -28,7 +28,6 @@ const Card: React.FC<CardProps> = ({ user, membership }) => {
         <p >Adress: {address}</p>
         <p >Password: {password}</p>
         <p >Repeat password: {password}</p>
-        <p >Bank account: {bankAccount}</p>
         <p>Membership: {membershipName}</p>
       </div>
       </div>

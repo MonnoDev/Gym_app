@@ -164,9 +164,11 @@ app.post('/users', async (req, res) => {
     const newUser = req.body;
     newUser.service_id = new ObjectId(newUser.service_id);
     const con = await client.connect();
-    const data = await con.db(dbName).collection('Users').insertOne(newUser);
+    const db = con.db(dbName);
+    const result = await db.collection('Users').insertOne(newUser);
+    const createdUser = await db.collection('Users').findOne({ _id: result.insertedId });
     await con.close();
-    res.send(data);
+    res.status(201).send(createdUser);
   } catch (error) {
     res.status(500).send(error);
   }
