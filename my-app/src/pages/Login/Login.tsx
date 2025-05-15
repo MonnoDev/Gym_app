@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { User, getUsers } from "../../api/user";
+import { useNavigate } from "react-router-dom";
 import Form from "../../components/Form/Form";
 import Button from "../../components/Button/Button";
 
 const Login: React.FC = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [user, setUser] = useState<User | null>(() => {
@@ -29,12 +31,12 @@ const Login: React.FC = () => {
             const admin: boolean = existingUser.admin;
             sessionStorage.setItem("userId", id);
             sessionStorage.setItem("admin", admin.toString())
-            console.log("Logged in user ID:", id);
+            navigate("/admin");
           } 
           if (existingUser._id && !existingUser.admin){
             const id: string = existingUser._id;
             sessionStorage.setItem("userId", id);
-            console.log("Logged in user ID:", id);
+            navigate("/profile");
           }        
         } else {
           throw new Error("Invalid email or password");

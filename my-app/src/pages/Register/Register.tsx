@@ -125,13 +125,21 @@ const Register: React.FC = () => {
           onChange={(e) => setDateOfBirth(e.target.value)}
           required
         />
-        <Form
-          label="Gender"
-          type="text"
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
-          required
-        />
+        <div>
+          <label htmlFor="gender">Gender</label>
+          <select
+            name="gender"
+            id="gender"
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+            required
+          >
+            <option value="">--Select Gender--</option>
+              <option>Female</option>
+              <option>Male</option>
+              <option>Rather not say</option>
+          </select>
+        </div>
         <Form
           label="City"
           type="text"
