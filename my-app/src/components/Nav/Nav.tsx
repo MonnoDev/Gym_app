@@ -10,8 +10,8 @@ import "./Nav.css"
       <div className="nav-container">
         <img src={Gym} alt="Gym" />
         <div>
-            <Link to={LOGIN_ROUTE}>Log in</Link>
-            <Link to={REGISTER_ROUTE}>Register</Link>
+          <Button><Link to={LOGIN_ROUTE}>Log in</Link></Button>
+            <Button><Link to={REGISTER_ROUTE}>Register</Link></Button>
         </div>
       </div>
     );
