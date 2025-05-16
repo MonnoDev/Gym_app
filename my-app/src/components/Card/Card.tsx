@@ -3,6 +3,7 @@ import { User } from "../../api/user";
 import { Membership } from "../../api/membership";
 
 import "./Card.css"
+import Button from "../Button/Button";
 
 type CardProps = {
   user?: User;
@@ -40,8 +41,9 @@ const Card: React.FC<CardProps> = ({ user, membership }) => {
       <div className="container">
       <div className="cardContainer">
         <h2 className="cardTitle">{name}</h2>
-        <p className="cardContent">Price: {price}</p>
-        <p className="cardContent">Description: {descripcion}</p>
+        <p className="price">Price: {price}</p>
+        <p className="desc">Description: {descripcion}</p>
+        <Button>Register now</Button>
       </div>
       </div>
     );
