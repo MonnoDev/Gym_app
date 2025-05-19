@@ -4,11 +4,12 @@ interface FormProps {
   label: string;
   type: string;
   value?: string;
+  xmlns?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
 }
 
-const Form: React.FC<FormProps> = ({ label, type, value, onChange, required }) => {
+const Form: React.FC<FormProps> = ({ label, type, value, xmlns, onChange, required }) => {
   return (
     <div>
       <div>

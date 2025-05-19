@@ -1,18 +1,13 @@
 import React, { useState } from "react";
 import { User, getUsers } from "../../api/user";
 import { useNavigate } from "react-router-dom";
-import Form from "../../components/Form/Form";
-import Button from "../../components/Button/Button";
+import './Login.css';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [user, setUser] = useState<User | null>(() => {
-    const storedUser = sessionStorage.getItem("user");
-    return storedUser ? JSON.parse(storedUser) : null;
-  });
-
+  const [rememberMe, setRememberMe] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
 
   const checkUser = (users: User[], checkingUser: { email: string; password: string }) => {
@@ -26,18 +21,14 @@ const Login: React.FC = () => {
       .then((allUsers: User[]) => {
         const existingUser = checkUser(allUsers, checkingUser);
         if (existingUser) {
-          if (existingUser._id && existingUser.admin) {
-            const id: string = existingUser._id;
-            const admin: boolean = existingUser.admin;
-            sessionStorage.setItem("userId", id);
-            sessionStorage.setItem("admin", admin.toString())
+          const id: string = existingUser._id!;
+          sessionStorage.setItem("userId", id);
+          sessionStorage.setItem("admin", existingUser.admin?.toString() || "false");
+          if (existingUser.admin) {
             navigate("/admin");
-          } 
-          if (existingUser._id && !existingUser.admin){
-            const id: string = existingUser._id;
-            sessionStorage.setItem("userId", id);
+          } else {
             navigate("/profile");
-          }        
+          }
         } else {
           throw new Error("Invalid email or password");
         }
@@ -55,35 +46,60 @@ const Login: React.FC = () => {
 
   return (
     <div className="card">
-      {error && <div style={{ color: "red" }}>{error}</div>}
+      <form className="form" onSubmit={onSubmitHandler}>
+        <div className="flex-column">
+          <label>Email</label>
+        </div>
+        <div className="inputForm">
+          <input
+            placeholder="Enter your Email"
+            className="input"
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
 
-      <form onSubmit={onSubmitHandler}>
-        <Form
-          label="Email adress"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <Form
-          label="Password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <div className="buttons">
-          <Button
-            children="Cancel"
-            onClick={() => {
-              setEmail("");
-              setPassword("");
-              setError("");
-            }}
+        <div className="flex-column">
+          <label>Password</label>
+        </div>
+        <div className="inputForm">
+          <input
+            placeholder="Enter your Password"
+            className="input"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
           />
-          <Button
-          children="Log in"
-          />
+        </div>
+
+        <div className="flex-row">
+          <div>
+            <input
+              type="checkbox"
+              checked={rememberMe}
+              onChange={() => setRememberMe(!rememberMe)}
+            />
+            <label>Remember me</label>
+          </div>
+          <span className="span">Forgot password?</span>
+        </div>
+
+        <button className="button-submit" type="submit">Sign In</button>
+        {error && <p className="error">{error}</p>}
+
+        <p className="p">Don't have an account? <span className="span">Sign Up</span></p>
+        <p className="p line">Or With</p>
+
+        <div className="flex-row">
+          <button className="btn google" type="button">
+            Google
+          </button>
+          <button className="btn apple" type="button">
+            Apple
+          </button>
         </div>
       </form>
     </div>
