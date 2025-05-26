@@ -33,6 +33,8 @@ const CreateMembership: React.FC = () => {
       <form onSubmit={handleSubmit}>
         <Form
           label="Name"
+          placeholder="Name"
+          className="input"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -40,6 +42,8 @@ const CreateMembership: React.FC = () => {
         />
         <Form
           label="Price"
+          placeholder="Price"
+          className="input"
           type="text"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
@@ -47,6 +51,8 @@ const CreateMembership: React.FC = () => {
         />
         <Form
           label="Descripcion"
+          placeholder="Descripcion"
+          className="input"
           type="descripcion"
           value={descripcion}
           onChange={(e) => setDescripcion(e.target.value)}

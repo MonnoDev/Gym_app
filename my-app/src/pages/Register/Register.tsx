@@ -4,6 +4,7 @@ import { User, getUsers, postUsers } from "../../api/user";
 import { getMemberships } from "../../api/membership";
 import Form from "../../components/Form/Form";
 import Button from "../../components/Button/Button";
+import '../Login/Login.css';
 
 const Register: React.FC = () => {
   const navigate = useNavigate();
@@ -96,9 +97,11 @@ const Register: React.FC = () => {
 
   return (
     <div className="card">
-      <form onSubmit={onSubmitHandler}>
+      <form className="form" onSubmit={onSubmitHandler}>
         <Form
           label="First Name"
+          placeholder="First Name"
+          className="input"
           type="text"
           value={fname}
           onChange={(e) => setFname(e.target.value)}
@@ -106,6 +109,8 @@ const Register: React.FC = () => {
         />
         <Form
           label="Last Name"
+          placeholder="Last Name"
+          className="input"
           type="text"
           value={lname}
           onChange={(e) => setLname(e.target.value)}
@@ -113,6 +118,8 @@ const Register: React.FC = () => {
         />
         <Form
           label="Phone Number"
+          placeholder="Phone number"
+          className="input"
           type="text"
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
@@ -120,6 +127,8 @@ const Register: React.FC = () => {
         />
         <Form
           label="Date of Birth"
+          placeholder="Date of Birth"
+          className="input"
           type="date"
           value={dateOfBirth}
           onChange={(e) => setDateOfBirth(e.target.value)}
@@ -142,6 +151,8 @@ const Register: React.FC = () => {
         </div>
         <Form
           label="City"
+          placeholder="City"
+          className="input"
           type="text"
           value={city}
           onChange={(e) => setCity(e.target.value)}
@@ -149,6 +160,8 @@ const Register: React.FC = () => {
         />
         <Form
           label="Address"
+          placeholder="Address"
+          className="input"
           type="text"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
@@ -175,6 +188,8 @@ const Register: React.FC = () => {
 
         <Form
           label="Email"
+          placeholder="Email"
+          className="input"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -182,6 +197,8 @@ const Register: React.FC = () => {
         />
         <Form
           label="Password"
+          placeholder="Password"
+          className="input"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -189,6 +206,8 @@ const Register: React.FC = () => {
         />
         <Form
           label="Repeat Password"
+          placeholder="Repeat Password"
+          className="input"
           type="password"
           value={repeatPassword}
           onChange={(e) => setRepeatPassword(e.target.value)}

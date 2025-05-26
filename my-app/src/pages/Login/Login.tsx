@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { User, getUsers } from "../../api/user";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle, faApple } from '@fortawesome/free-brands-svg-icons';
+import Form from "../../components/Form/Form";
 import './Login.css';
 
 const Login: React.FC = () => {
@@ -47,33 +50,25 @@ const Login: React.FC = () => {
   return (
     <div className="card">
       <form className="form" onSubmit={onSubmitHandler}>
-        <div className="flex-column">
-          <label>Email</label>
-        </div>
-        <div className="inputForm">
-          <input
+        <Form
+            label='Email'
             placeholder="Enter your Email"
             className="input"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-          />
-        </div>
+        />
 
-        <div className="flex-column">
-          <label>Password</label>
-        </div>
-        <div className="inputForm">
-          <input
+        <Form
+            label='Password'
             placeholder="Enter your Password"
             className="input"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-          />
-        </div>
+        />
 
         <div className="flex-row">
           <div>
@@ -84,20 +79,22 @@ const Login: React.FC = () => {
             />
             <label>Remember me</label>
           </div>
-          <span className="span">Forgot password?</span>
+          <span className="span"><Link to="/forgotPassword">Forgot password?</Link></span>
         </div>
 
         <button className="button-submit" type="submit">Sign In</button>
         {error && <p className="error">{error}</p>}
 
-        <p className="p">Don't have an account? <span className="span">Sign Up</span></p>
+        <p className="p">Don't have an account? <span className="span"><Link to="/register">Sign Up</Link></span></p>
         <p className="p line">Or With</p>
 
         <div className="flex-row">
           <button className="btn google" type="button">
+            <FontAwesomeIcon icon={faGoogle} />
             Google
           </button>
           <button className="btn apple" type="button">
+            <FontAwesomeIcon icon={faApple} />
             Apple
           </button>
         </div>

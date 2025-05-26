@@ -7,6 +7,7 @@ import Register from "../pages/Register/Register";
 import Profile from "../pages/Profile/Profile";
 import Admin from "../pages/Admin/Admin";
 import CheckoutPage from "../pages/Chekout/Chekout";
+import ForgotPwd from "../pages/ForgotPwd/ForgotPwd";
 
 export const MAIN_ROUTE = "/";
 export const LOGIN_ROUTE = "/login";
@@ -17,6 +18,7 @@ export const CREATE_USER__ROUTE = "/createuser";
 export const CREATE_MEMBERSHIP__ROUTE = "/createmembership";
 export const ADMIN_ROUTE = "/admin";
 export const CHEKOUT_ROUTE = "/chekout";
+export const FORGOTPWD_ROUTE = "/forgotPassword";
 
 
 export const adminRoutes = {
@@ -62,6 +64,10 @@ export const clientRoutes ={
         {
             path: CHEKOUT_ROUTE,
             Component: CheckoutPage,
+        },
+        {
+            path: FORGOTPWD_ROUTE,
+            Component: ForgotPwd, 
         },
     ],
 };

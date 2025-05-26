@@ -1,26 +1,32 @@
 import React from "react";
+import './Form.css';
 
 interface FormProps {
   label: string;
+  placeholder: string;
+  className: string;
   type: string;
   value?: string;
-  xmlns?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
 }
 
-const Form: React.FC<FormProps> = ({ label, type, value, xmlns, onChange, required }) => {
+const Form: React.FC<FormProps> = ({ label, type, value, placeholder, className, onChange, required }) => {
   return (
     <div>
-      <div>
+      <div className="flex-column">
         <label>{label}</label>
       </div>
-      <input
-        type={type}
-        value={value}
-        onChange={onChange}
-        required={required}
+      <div className="inputForm">
+        <input
+          placeholder={placeholder}
+          className={className}
+          type={type}
+          value={value}
+          onChange={onChange}
+          required={required}
       />
+      </div>
     </div>
   );
 };
