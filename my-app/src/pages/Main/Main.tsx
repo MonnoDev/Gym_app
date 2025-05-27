@@ -27,9 +27,7 @@ const Main: React.FC = () => {
 
   return (
     <div>
-      <div>
-        <Nav/>
-      </div>
+      <Nav/>
       <div>
         <div className="heroImage">
         <img src={HeroImage} alt="Hero" />

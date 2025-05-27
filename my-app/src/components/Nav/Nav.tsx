@@ -7,13 +7,15 @@ import "./Nav.css"
 
   const Nav: React.FC = () => {
     return (
-      <div className="nav-container">
-        <img src={Gym} alt="Gym" />
-        <div>
-          <Button><Link to={LOGIN_ROUTE}>Log in</Link></Button>
-            <Button><Link to={REGISTER_ROUTE}>Register</Link></Button>
+      <nav className="navbar">
+        <div className="logo">
+          <img src={Gym} alt="Gym" />
         </div>
-      </div>
+        <div className="buttonContainer">
+          <Button><Link to={LOGIN_ROUTE}>Log in</Link></Button>
+          <Button><Link to={REGISTER_ROUTE}>Register</Link></Button>
+        </div>
+      </nav>
     );
   };
   
