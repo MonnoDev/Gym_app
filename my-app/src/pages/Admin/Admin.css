@@ -1,3 +1,31 @@
-.adminPanelItem{
-    
+.adminPanelItems{
+    display: inline-flex;
+}
+
+.adminPanelItems div{
+    margin-left: 1rem;
+    margin-right: 1rem; 
+    height: 300px;
+    width: 300px;
+    border-radius: 0.25rem;
+    padding: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem; 
+}
+
+.adminPanelItems div a{
+    text-decoration: none;
+    color: black;
+}
+
+.adminBlue{
+    background-color: #1481BA;
+}
+
+.adminGreen{
+    background-color: #2dba14;
+}
+
+.adminPink{
+    background-color: #ba146f;
 }

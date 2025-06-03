@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import './Admin.css';
 import Nav from "../../components/Nav/Nav";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserPlus, faUsers, faDumbbell } from '@fortawesome/free-solid-svg-icons';
 
 const Admin: React.FC = () => {
 
@@ -9,11 +11,20 @@ const Admin: React.FC = () => {
         <div>
             <Nav/>
             <p>Gym admin panel</p>
-            <ul className="adminPanelItems">
-                    <li><Link to="/users">Manage Users</Link></li>
-                    <li><Link to="/createmembership">Create Membership</Link></li>
-                    <li><Link to="/createuser">Create User</Link></li>
-            </ul>
+            <div className="adminPanelItems">
+                <div className="adminBlue">
+                    <Link to="/users">Manage Users</Link>
+                    <FontAwesomeIcon icon={faUsers}/>
+                </div>
+                <div className="adminGreen">
+                    <Link to="/createmembership">Create Membership</Link>
+                    <FontAwesomeIcon icon={faDumbbell} />
+                </div>
+                <div className="adminPink">
+                    <Link to="/createuser">Create User</Link>
+                    <FontAwesomeIcon icon={faUserPlus}/>
+                </div>
+            </div>
         </div>
     );
 };

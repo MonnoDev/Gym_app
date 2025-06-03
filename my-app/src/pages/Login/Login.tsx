@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { User, getUsers } from "../../api/user";
 import { useNavigate, Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,6 +12,7 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [rememberMe, setRememberMe] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
+  const [loggedInUser, setLoggedInUser] = useState<User | null>(null);
 
   const checkUser = (users: User[], checkingUser: { email: string; password: string }) => {
     return users.find(
@@ -19,19 +20,26 @@ const Login: React.FC = () => {
     );
   };
 
+
+    useEffect(() => {
+    if (loggedInUser) {
+      sessionStorage.setItem("userId", loggedInUser._id!);
+      sessionStorage.setItem("admin", loggedInUser.admin?.toString() || "false");
+
+      if (loggedInUser.admin) {
+        navigate("/admin");
+      } else {
+        navigate("/profile");
+      }
+    }
+  }, [loggedInUser]);
+
   const onLogin = (checkingUser: { email: string; password: string }) => {
     getUsers()
       .then((allUsers: User[]) => {
         const existingUser = checkUser(allUsers, checkingUser);
         if (existingUser) {
-          const id: string = existingUser._id!;
-          sessionStorage.setItem("userId", id);
-          sessionStorage.setItem("admin", existingUser.admin?.toString() || "false");
-          if (existingUser.admin) {
-            navigate("/admin");
-          } else {
-            navigate("/profile");
-          }
+          setLoggedInUser(existingUser);
         } else {
           throw new Error("Invalid email or password");
         }
