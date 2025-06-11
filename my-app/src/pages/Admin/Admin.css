@@ -1,5 +1,7 @@
 .adminPanelItems{
-    display: inline-flex;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .adminPanelItems div{
@@ -19,13 +21,22 @@
 }
 
 .adminBlue{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     background-color: #1481BA;
 }
 
 .adminGreen{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     background-color: #2dba14;
 }
 
 .adminPink{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     background-color: #ba146f;
 }

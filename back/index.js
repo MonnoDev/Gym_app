@@ -144,6 +144,21 @@ app.delete('/memberships/:id', async (req, res) => {
   }
 });
 
+app.delete('/users/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const con = await client.connect();
+    const data = await con
+      .db(dbName)
+      .collection('Users')
+      .deleteOne({ _id: new ObjectId(id) });
+    await con.close();
+    res.send(data);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 app.post('/memberships', async (req, res) => {
   try {
     const newService = req.body;

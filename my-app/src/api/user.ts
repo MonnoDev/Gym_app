@@ -33,3 +33,7 @@ export const postUsers = async (newUser: User): Promise<User> => {
   const { data } = await axios.post<User>(`${API_BASE_URL}/users`, newUser);
   return data;
 };
+
+export const deleteUser = async (id: string): Promise<void> => {
+  await axios.delete(`${API_BASE_URL}/users/${id}`);
+};

@@ -22,14 +22,18 @@ const Users: React.FC = () => {
       });
   }, []);
 
+  const handleDelete = (id: string) => {
+    setUser(prevUsers => prevUsers.filter(user => user._id !== id));
+  };
+
   return (
     <div>
       {isLoading ? (
         <Loading message="Loading Users..." />
       ) : (
         <div>
-          {user.map((userItem, index) => (
-            <Card key={index} user={userItem} />
+          {user.map((userItem) => (
+            <Card key={userItem._id} user={userItem} onDelete={handleDelete} />
           ))}
         </div>
       )}

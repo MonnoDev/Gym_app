@@ -4,3 +4,9 @@
   object-fit: cover;
   display: block;
 }
+
+.memberhipCards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

@@ -37,7 +37,7 @@ const Main: React.FC = () => {
       {isLoading ? (
         <Loading message="Loading memberships..."  />
       ) : (
-        <div>
+        <div className="memberhipCards">
           {membership.map((membershipItem, index) => ( 
             <Card key={index} membership={membershipItem} />
           ))}

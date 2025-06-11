@@ -28,8 +28,9 @@ const Nav: React.FC = () => {
           </>
         ) : (
           <>
-            <Button><Link to={LOGIN_ROUTE}>Log in</Link></Button>
-            <Button><Link to={REGISTER_ROUTE}>Register</Link></Button>
+            <Link to={LOGIN_ROUTE}><Button>Log in</Button></Link>
+            <Link to={REGISTER_ROUTE}><Button>Register</Button></Link>
+
           </>
         )}
       </div>
