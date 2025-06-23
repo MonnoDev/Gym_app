@@ -5,6 +5,7 @@ import { Membership } from "../../api/membership";
 import Card from "../../components/Card/Card";
 import HeroImage from "../../images/hero.jpg"
 import Nav from "../../components/Nav/Nav";
+import Information from "./MainSubPages/Information/Information";
 import "./Main.css";
 
 const Main: React.FC = () => {
@@ -33,6 +34,7 @@ const Main: React.FC = () => {
         <img src={HeroImage} alt="Hero" />
         </div>
       </div>
+      <Information/>
 
       {isLoading ? (
         <Loading message="Loading memberships..."  />
