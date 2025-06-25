@@ -7,6 +7,7 @@ import HeroImage from "../../images/hero.jpg"
 import Nav from "../../components/Nav/Nav";
 import Information from "./MainSubPages/Information/Information";
 import "./Main.css";
+import Maps from "./MainSubPages/Maps/Maps";
 
 const Main: React.FC = () => {
   const [membership, setMembership] = useState<Membership[]>([]);
@@ -35,6 +36,8 @@ const Main: React.FC = () => {
         </div>
       </div>
       <Information/>
+
+      <Maps/>
 
       {isLoading ? (
         <Loading message="Loading memberships..."  />
