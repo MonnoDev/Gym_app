@@ -8,6 +8,7 @@ import Nav from "../../components/Nav/Nav";
 import Information from "./MainSubPages/Information/Information";
 import "./Main.css";
 import Maps from "./MainSubPages/Maps/Maps";
+import Footer from "../../components/Footer/Footer";
 
 const Main: React.FC = () => {
   const [membership, setMembership] = useState<Membership[]>([]);
@@ -48,6 +49,8 @@ const Main: React.FC = () => {
           ))}
         </div>
       )}
+
+      <Footer/>
       </div>
   );
 };
