@@ -1,4 +1,3 @@
-// CheckoutPage.tsx
 import React from "react";
 import Checkout from "../../components/Chekout/Chekout";
 import StripeProvider from "../../context/StripeProvider";
