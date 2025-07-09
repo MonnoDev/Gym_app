@@ -16,6 +16,9 @@
     padding-right: 12rem;
 }
 
+.mainInfo div,.importInfo div,.socialsInfo div, .createdInfo div{
+    margin-bottom: 0.5rem;
+}
 
 .mainInfo img{
     height: 100px;

@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
 
         <div className="createdInfo">
             <div>2025</div>
-            <div>Created by: MonoDev</div>
+            <div>Created by: MonnoDev</div>
         </div>
 
     </div>
